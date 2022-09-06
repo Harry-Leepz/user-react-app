@@ -1,7 +1,9 @@
+import AddUser from "./components/Users/AddUser";
+
 function App() {
   return (
     <div className='App'>
-      <h1>Hello React</h1>
+      <AddUser />
     </div>
   );
 }
