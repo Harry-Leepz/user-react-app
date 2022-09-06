@@ -12,4 +12,4 @@ The application was created with the following commind in the terminal,
   npx create-react-app (PROJECT-NAME)
 ```
 
-The project is made solely for educational purposes, with the aim to learn the React.
+# Hello World
