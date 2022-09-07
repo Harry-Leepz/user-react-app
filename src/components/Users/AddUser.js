@@ -1,5 +1,7 @@
 import Card from "../Ui/Card";
 
+import styles from "./AddUser.module.css";
+
 const AddUser = () => {
   // prevent page reload on form submission
   const onSubmitHandler = (event) => {
