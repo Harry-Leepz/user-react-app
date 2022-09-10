@@ -12,9 +12,15 @@ const AddUser = () => {
   // prevent page reload on form submission
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log("Username is", usernameInput);
-    console.log("Age is", ageInput);
 
+    if (usernameInput.trim().length === 0 || ageInput.trim().length === 0) {
+      return;
+    }
+
+    if (+ageInput < 1) {
+      return;
+    }
+    console.log(usernameInput, ageInput);
     // reset form input fields on form submission
     setAgeInput("");
     setUsernameInput("");
