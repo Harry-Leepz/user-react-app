@@ -14,6 +14,10 @@ const AddUser = () => {
     event.preventDefault();
     console.log("Username is", usernameInput);
     console.log("Age is", ageInput);
+
+    // reset form input fields on form submission
+    setAgeInput("");
+    setUsernameInput("");
   };
 
   const usernameChangeHandler = (event) => {
@@ -28,9 +32,19 @@ const AddUser = () => {
     <Card className={styles.input}>
       <form onSubmit={onSubmitHandler}>
         <label htmlFor='username'>Username:</label>
-        <input id='username' type='text' onChange={usernameChangeHandler} />
+        <input
+          id='username'
+          type='text'
+          value={usernameInput}
+          onChange={usernameChangeHandler}
+        />
         <label htmlFor='age'>Age:</label>
-        <input id='age' type='number' onChange={ageChangeHandler} />
+        <input
+          id='age'
+          type='number'
+          value={ageInput}
+          onChange={ageChangeHandler}
+        />
         <Button type={"submit"}>Add User</Button>
       </form>
     </Card>
