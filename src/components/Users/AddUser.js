@@ -8,6 +8,7 @@ const AddUser = () => {
   // state
   const [usernameInput, setUsernameInput] = useState("");
   const [ageInput, setAgeInput] = useState("");
+  const [addNewUser, setAddNewUser] = useState([]);
 
   // prevent page reload on form submission
   const onSubmitHandler = (event) => {
@@ -20,7 +21,17 @@ const AddUser = () => {
     if (+ageInput < 1) {
       return;
     }
-    console.log(usernameInput, ageInput);
+
+    const newUser = {
+      username: usernameInput,
+      age: ageInput,
+    };
+
+    setAddNewUser((prevState) => {
+      return [...prevState, newUser];
+    });
+
+    console.log(addNewUser);
     // reset form input fields on form submission
     setAgeInput("");
     setUsernameInput("");
