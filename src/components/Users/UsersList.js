@@ -1,8 +1,10 @@
 import Card from "../Ui/Card";
 
+import styles from "./UsersList.module.css";
+
 const UsersList = (props) => {
   return (
-    <Card>
+    <Card className={styles.users}>
       <ul>
         {props.users.map((user) => {
           return (
