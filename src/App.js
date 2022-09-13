@@ -7,7 +7,10 @@ function App() {
 
   const onAddUser = (userName, userAge) => {
     setusersList((prevState) => {
-      return [...prevState, { name: userName, age: userAge }];
+      return [
+        ...prevState,
+        { name: userName, age: userAge, id: Math.random().toString() },
+      ];
     });
     console.log(usersList);
   };
