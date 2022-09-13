@@ -4,11 +4,10 @@ import Card from "../Ui/Card";
 
 import styles from "./AddUser.module.css";
 
-const AddUser = () => {
+const AddUser = (props) => {
   // state
   const [usernameInput, setUsernameInput] = useState("");
   const [ageInput, setAgeInput] = useState("");
-  const [addNewUser, setAddNewUser] = useState([]);
 
   // prevent page reload on form submission
   const onSubmitHandler = (event) => {
@@ -22,16 +21,7 @@ const AddUser = () => {
       return;
     }
 
-    const newUser = {
-      username: usernameInput,
-      age: ageInput,
-    };
-
-    setAddNewUser((prevState) => {
-      return [...prevState, newUser];
-    });
-
-    console.log(addNewUser);
+    props.onAddUser(usernameInput, ageInput);
     // reset form input fields on form submission
     setAgeInput("");
     setUsernameInput("");
