@@ -9,16 +9,25 @@ const AddUser = (props) => {
   // state
   const [usernameInput, setUsernameInput] = useState("");
   const [ageInput, setAgeInput] = useState("");
+  const [error, setError] = useState();
 
   // prevent page reload on form submission
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
     if (usernameInput.trim().length === 0 || ageInput.trim().length === 0) {
+      setError({
+        title: "Invalid Input",
+        message: "Please enter a valid name and age (non-empty values).",
+      });
       return;
     }
 
     if (+ageInput < 1) {
+      setError({
+        title: "Invalid Input",
+        message: "Please enter a valid age (value greater than 0) ",
+      });
       return;
     }
 
@@ -38,7 +47,7 @@ const AddUser = (props) => {
 
   return (
     <div>
-      <ErrorModal title='An error occured' message='Something went wrong!' />
+      {error && <ErrorModal title={error.title} message={error.message} />}
       <Card className={styles.input}>
         <form onSubmit={onSubmitHandler}>
           <label htmlFor='username'>Username:</label>
