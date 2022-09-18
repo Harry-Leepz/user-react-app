@@ -1,12 +1,15 @@
+import ReactDOM from "react-dom";
 import Card from "./Card";
 import Button from "./Button";
 
 import styles from "./ErrorModal.module.css";
 
+// Component to be portaled in the DOM
 const Backdrop = (props) => {
-  return <div className={props.backdrop} onClick={props.onHandleError}></div>;
+  return <div className={styles.backdrop} onClick={props.onHandleError}></div>;
 };
 
+// Component to be portaled in the DOM
 const ModalOverlay = (props) => {
   return (
     <>
@@ -25,6 +28,15 @@ const ModalOverlay = (props) => {
   );
 };
 
-const ErrorModal = (props) => {};
+const ErrorModal = (props) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <Backdrop onHandleError={props.onHandleError} />,
+        document.getElementById("overlay-root")
+      )}
+    </>
+  );
+};
 
 export default ErrorModal;
