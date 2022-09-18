@@ -28,12 +28,22 @@ const ModalOverlay = (props) => {
   );
 };
 
+// CreatePortal method is used to move the components out of the root
+// and into the specified element by iDs.
 const ErrorModal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
         <Backdrop onHandleError={props.onHandleError} />,
         document.getElementById("overlay-root")
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay
+          title={props.title}
+          message={props.message}
+          onHandleError={props.onHandleError}
+        />,
+        document.getElementById("errormodal-root")
       )}
     </>
   );
