@@ -22,4 +22,8 @@ const ErrorModal = (props) => {
   );
 };
 
+const Backdrop = (props) => {
+  return <div className={props.backdrop} onClick={props.onHandleError}></div>;
+};
+
 export default ErrorModal;
