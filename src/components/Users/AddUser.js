@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "../Ui/Button";
 import Card from "../Ui/Card";
 import ErrorModal from "../Ui/ErrorModal";
@@ -6,6 +6,10 @@ import ErrorModal from "../Ui/ErrorModal";
 import styles from "./AddUser.module.css";
 
 const AddUser = (props) => {
+  // refernces
+  const usernameInputRef = useRef();
+  const ageInputRef = useRef();
+
   // state
   const [usernameInput, setUsernameInput] = useState("");
   const [ageInput, setAgeInput] = useState("");
