@@ -70,6 +70,7 @@ const AddUser = (props) => {
             type='text'
             value={usernameInput}
             onChange={usernameChangeHandler}
+            ref={usernameInputRef}
           />
           <label htmlFor='age'>Age:</label>
           <input
@@ -77,6 +78,7 @@ const AddUser = (props) => {
             type='number'
             value={ageInput}
             onChange={ageChangeHandler}
+            ref={ageInputRef}
           />
           <Button type={"submit"}>Add User</Button>
         </form>
